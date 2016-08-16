@@ -1,12 +1,8 @@
-FROM ubuntu:16.04
+FROM centos:7
 MAINTAINER nalinda@thinkcube.com
 
-RUN apt-get update
-
-RUN apt-get install curl -y
-
-RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-RUN apt-get install nodejs vim git python  -y && apt-get clean all -y
+RUN yum install -y https://rpm.nodesource.com/pub_4.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm
+RUN yum  install -y nodejs vim gcc-c++ make && yum clean all 
 
 
 RUN npm install -g npm
